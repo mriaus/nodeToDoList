@@ -1,23 +1,8 @@
 const express = require('express')
+import {notes} from './src/data/notesMock'
 //const http = require('http')
 
-const notes = [
-    {
-        "name": 'nota 1',
-        "value": "nodemon para que detecte los cambios y reinicie el servidor solo (Servidores con node)",
-        "id": 1
-    },
-    {
-        "name": 'nota 2',
-        "value": "Añadimos express para gestionar las rutas npm install express",
-        "id": 2
-    },
-    {
-        "name": 'nota 3',
-        "value": 8,
-        "id": 3
-    }
-]
+
 /*  PAra hacerlo con el require('http')
 const app = http.createServer((request, response) => {
     response.writeHead(200, {'Content-type': 'application/json'}) //Cabezera, respuesta 200 si es correcto y respuesta de tipo plano
@@ -28,6 +13,11 @@ const app = http.createServer((request, response) => {
 const app = express()
 
 
+let port = process.env.PORT
+if(port === null || port === ''){
+    port = '8000'
+}
+app.listen(port)
 
 app.get('/', (request, response) => {
     response.send('<h1>Hola bb</h1>')
