@@ -2,7 +2,7 @@
   "name": "prueba1",
   "version": "1.0.0",
   "description": "Primera prueba de back con node",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start nodemon": "nodemon index.ts",
     "start": "node index.ts",
