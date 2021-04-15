@@ -1,5 +1,6 @@
 const express = require('express')
-import {notes} from './src/data/notesMock'
+const notes = require('./src/data/notesMock')
+
 //const http = require('http')
 
 
