@@ -1,4 +1,4 @@
-export const notes = [
+ [
     {
         "name": 'nota 1',
         "value": "nodemon para que detecte los cambios y reinicie el servidor solo (Servidores con node)",

@@ -1,5 +1,5 @@
 const express = require('express')
-const notes = require('./src/data/notesMock')
+const notes = require('./src/data/notesMock.ts')
 
 //const http = require('http')
 
