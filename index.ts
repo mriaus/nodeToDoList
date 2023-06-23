@@ -8,26 +8,26 @@ let port = process.env.PORT
 
 app.listen(port)
 
-app.get('/', (request, response) => {
+app.get('/', (request: any, response: any) => {
     response.send('<h1>SERVER UP</h1>')
 })
 
-app.get('/notes', (request, response) => {
+app.get('/notes', (request: any, response: any) => {
     response.json(notes)
 })
-app.get('/notes/:id', (request, response) => {
-    const note = notes.find(item => item.id === Number(request.params.id))
+app.get('/notes/:id', (request: any, response: any) => {
+    const note = notes.find((item: any) => item.id === Number(request.params.id))
 
     if (note) {
-        response.json(notes.find(item => item.id === Number(request.params.id)))
+        response.json(notes.find((item: any) => item.id === Number(request.params.id)))
 
     } else {
         response.status('404')
     }
 })
 
-app.delete('/notes/:id', (request, response) => {
-    const note = notes.filter(item => item.id !== Number(request.params.id))
+app.delete('/notes/:id', (request: any, response: any) => {
+    const note = notes.filter((item: any) => item.id !== Number(request.params.id))
 
     if (note) {
         response.json(note)
