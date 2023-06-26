@@ -14,7 +14,6 @@ app.get('/notes', async (request: any, response: any) => {
     const result = await db.collection('notes').get();
 
     result.docs.forEach((element: any, index: number) => {
-        // res.push(element.data())
         console.log(`ITEM -> ${index} ------ ${element.data()}`)
         res.push(element.data())
     });
