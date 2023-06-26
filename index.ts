@@ -1,5 +1,6 @@
 const express = require('express')
 const notes = require('./src/data/notesMock.json')
+const { db } = require("./src/firebase")
 
 const app = express()
 const port = process.env.PORT || 3001
@@ -8,8 +9,16 @@ app.get('/', (request: any, response: any) => {
     response.send('<h1>SERVER UP</h1>')
 })
 
-app.get('/notes', (request: any, response: any) => {
-    response.json(notes)
+app.get('/notes', async (request: any, response: any) => {
+    const res: any[] = []
+    const result = await db.collection('notes').get();
+
+    result.docs.forEach((element: any, index: number) => {
+        // res.push(element.data())
+        console.log(`ITEM -> ${index} ------ ${element.data()}`)
+        res.push(element.data())
+    });
+    response.json(res)
 })
 
 app.get('/notes/:id', (request: any, response: any) => {
